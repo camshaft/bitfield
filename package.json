@@ -1,0 +1,32 @@
+{
+  "name": "bitfield",
+  "version": "0.1.0",
+  "description": "simple bitfields for node",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "simple-debug": "~1.1.0"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.11.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/bitfield.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CamShaft/bitfield/issues"
+  },
+  "keywords": [
+    "bitfield"
+  ],
+  "author": "Cameron Bytheway <cameron@theflokk.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
