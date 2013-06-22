@@ -32,10 +32,10 @@ var list = ['1','2','3','4','5','6','7','8','9']
 var bits = bitfield(list);
 
 var packed = bits.pack(enabled);
-// => <Buffer 09>
+// => <Buffer 48 01>
 
 var unpacked = bits.unpack(packed);
-// => ['name', 'address']
+// => ['4','7','9']
 
 unpacked.should.eql(enabled);
 ```
