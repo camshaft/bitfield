@@ -48,7 +48,7 @@ exports.pack = function(enabled, list) {
       var index = i * 8 + j
         , item = list[index];
 
-      !!~enabled.indexOf(item)
+      (enabled && !!~enabled.indexOf(item))
         ? byte |= (1 << j)
         : byte &= ~(1 << j);
     };
