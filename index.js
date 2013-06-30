@@ -43,14 +43,15 @@ exports.pack = function(enabled, list) {
   var bytes = [];
 
   for (var i = 0; i < Math.ceil(list.length / 8); i++) {
-    var byte = 0x0;
+    var byte = 0x0
+      , byteIndex = i * 8;
     for (var j = 0; j < 8; j++) {
-      var index = i * 8 + j
-        , item = list[index];
+      var item = list[byteIndex + j]
+        , offset = 7 - j;
 
       (enabled && !!~enabled.indexOf(item))
-        ? byte |= (1 << j)
-        : byte &= ~(1 << j);
+        ? byte |= (1 << offset)
+        : byte &= ~(1 << offset);
     };
     bytes.push(byte);
   };
@@ -66,11 +67,13 @@ exports.unpack = function(buffer, list) {
   var enabled = [];
 
   for (var i = 0; i < buffer.length; i++) {
-    var byte = buffer[i];
+    var byte = buffer[i]
+      , byteIndex = i * 8;
     for (var j = 0; j < 8; j++) {
-      var index = i * 8 + j;
+      var index = byteIndex + j
+        , offset = 7 - j;
       if (index === list.length) return enabled;
-      if (byte & (1 << j)) enabled.push(list[index]);
+      if (byte & (1 << offset)) enabled.push(list[index]);
     };
   };
 
